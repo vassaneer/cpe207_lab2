@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
+    <title>Game</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="dist/css/style.css">
+   <link rel="stylesheet" href="dist/css/style.scss">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <!-- Site wrapper -->
@@ -101,76 +103,43 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Contact
+        Game
       </h1>
     </section>
 
     <!-- Main content -->
   <section class="content">
-      <div class="row">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label >first Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label >Last Name</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label >Company</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label >Email</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label ><span>What are you contacting us about?</span></label>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                        Media inquiry
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Speaking or conference invitation
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                        Join press list
-                      </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                          Other
-                        </label>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label >Message</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-              </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
+    <div class="callout callout-info">
+        <h1 style="text-align: center;">Number guessing game</h1>
+        <h4>Rule!</h4>
+        <p>we have a random number between 1 and 100. See if you can guess it in 10 turns or less. We'll tell you if your guess was too high or too low</p>
       </div>
+<br>
+<button type="button" name="start" onclick="start()" class="btn btn-block btn-warning btn-lg">Start</button><br>
+<div id="timer" style="visibility:hidden;" class="clock"><span></span></div>
+<div class="input-group" style="visibility: hidden;">
+    <!-- /btn-group -->
+    <input type="number" class="form-control" name="guess" >
+    <div class="input-group-btn">
+        <button type="button" class="btn btn-danger" name="confirm" onclick="checkupdate()" >submit</button>
+      </div>
+  </div>
+
+  <div class="textstatus">
+    <div id="previous" style="visibility:hidden;"><span></span></div>
+    <div id="game" ><span> </span> </div>
+    <div id="status" ><span> </span></div>
+  </div>
+
+  <div  style="text-align: center;">
+    <button type="button"class="btn btn-danger btn-refresh" onclick="refresh()" name="refresh" >Refresh</button>
+  </div>
+
+  <div class="pe">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
+
   </section>
     <!-- /.content -->
   </div>
@@ -201,5 +170,6 @@
     <script src="dist/js/adminlte.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
+    <script src="dist/js/pages/gamecontrol.js"></script>
 </body>
 </html>
