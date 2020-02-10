@@ -12,7 +12,7 @@ $("#save").click(() => {
     if($("#firstname").val()!=""){
     db.collection("submit").add({firstname:$("#firstname").val(),lastname:$("#lastname").val(),email:$("#email").val(),gender:$('input[name=optionsRadios]:checked').val(),detail:$("#detail").val()})
     .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            // console.log("Document written with ID: ", docRef.id);
             if(!isNaN(docRef.id.charAt(0))){
                 delete_data(docRef)
                 write_data()
@@ -20,7 +20,7 @@ $("#save").click(() => {
             location.reload();
         })
         .catch(function(error) {
-            console.error("Error adding document: ", error);
+            // console.error("Errosr adding document: ", error);
         });
 }else{
     alert("please enter your subject")
@@ -34,7 +34,7 @@ db.collection("submit").orderBy("gender")
     data.push(snapshot.docs.filter(data=>{return data.data().gender==="ชาย"}).length)
     data.push(snapshot.docs.filter(data=>{return data.data().gender==="หญิง"}).length)
     data.push(snapshot.docs.filter(data=>{return data.data().gender==="อื่นๆ"}).length)
-    console.log(data)
+    // console.log(data)
     draw_chart(data)
 });
 
@@ -42,7 +42,7 @@ db.collection("submit").orderBy("gender")
     .onSnapshot(function(snapshot) {
         $("#contact .row").html("")
         snapshot.forEach(doc=>{
-            console.log(typeof(doc.id))
+            // console.log(typeof(doc.id))
             $("#contact .row").append(`
              <div class="col-md-4">
             <div class="box box-primary">
@@ -108,21 +108,21 @@ function write_data(){
     if($("#firstname").val()!=""){
     db.collection("submit").add({firstname:$("#firstname").val(),lastname:$("#lastname").val(),email:$("#email").val(),gender:$('input[name=optionsRadios]:checked').val(),detail:$("#detail").val()})
     .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            // console.log("Document written with ID: ", docRef.id);
         })
         .catch(function(error) {
-            console.error("Error adding document: ", error);
+           s // console.error("Error adding document: ", error);
         });
 }
 }
 
 function delete_data(id){
-    console.log(typeof(id.id))
+    // console.log(typeof(id.id))
     db.collection("submit").doc(id.id).delete().then(function() {
-        console.log("Document successfully deleted!");
+        // console.log("Document successfully deleted!");
         location.reload();
     }).catch(function(error) {
-        console.error("Error removing document: ", error);
+        // console.error("Error removing document: ", error);
     })
 }
 
@@ -139,7 +139,7 @@ function censoring(data){
 }    
 
 function draw_chart(data){
-    console.log(data) 
+    // console.log(data) 
 var ctx = document.getElementById('pieChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
