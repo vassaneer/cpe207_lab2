@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
+    <title>Home</title>
+    
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -101,7 +102,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Contact
+        Home
       </h1>
     </section>
 
@@ -112,65 +113,64 @@
             <div class="box-header with-border">
             </div>
             <!-- /.box-header -->
+            <canvas id="pieChart" style="height: 50px!important; width: 51px!important;" height="100" width="202"></canvas>
+        
             <!-- form start -->
             <form role="form">
               <div class="box-body">
                 <div class="form-group">
-                  <label >first Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                  <label >ชื่อจริง(first Name)</label>
+                  <input type="text" class="form-control" id="firstname" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label >Last Name</label>
-                  <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <label >นามสกุล(Last Name)</label>
+                  <input type="text" class="form-control" id="lastname" placeholder="">
                 </div>
-                <div class="form-group">
-                    <label >Company</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <div class="form-group">
+                    <label >อีเมล์(Email)</label>
+                    <input type="email" class="form-control" id="email" placeholder="">
                   </div>
                   <div class="form-group">
-                    <label >Email</label>
-                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="">
-                  </div>
-                  <div class="form-group">
-                    <label ><span>What are you contacting us about?</span></label>
+                    <label ><span>เพศ(gender)</span></label>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                        Media inquiry
+                        <input type="radio" name="optionsRadios" id="male" value="ชาย" checked="">
+                        ชาย
                       </label>
                     </div>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                        Speaking or conference invitation
+                        <input type="radio" name="optionsRadios" id="femail" value="หญิง">
+                        หญิง
                       </label>
                     </div>
                     <div class="radio">
                       <label>
-                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                        Join press list
+                        <input type="radio" name="optionsRadios" id="other" value="อื่นๆ" >
+                        อื่นๆ
                       </label>
                     </div>
-                    <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                          Other
-                        </label>
-                      </div>
                   </div>
                   <div class="form-group">
-                    <label >Message</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                    <label >รายละเอียด(detail)</label>
+                    <br>
+                    <textarea  rows="10" cols="100" id="detail"></textarea>
                   </div>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="save" class="btn btn-primary">Submit</button>
+                <button id="reset" type="reset" class="btn btn-danger">Reset</button>
               </div>
             </form>
           </div>
       </div>
+      <div id="contact">
+        <div class="row">
+        </div>
+      </div>
+     
   </section>
     <!-- /.content -->
   </div>
@@ -198,8 +198,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js" integrity="sha256-qE/6vdSYzQu9lgosKxhFplETvWvqAAlmAuR+yPh/0SI=" crossorigin="anonymous"></script>
     <!-- FastClick -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js" integrity="sha256-t6SrqvTQmKoGgi5LOl0AUy+lBRtIvEJ+++pLAsfAjWs=" crossorigin="anonymous"></script>
-    <script src="dist/js/adminlte.min.js"></script>
+    <script src="/dist/js/adminlte.min.js"></script>
+
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="dist/js/pages/submit.js"></script>
 </body>
 </html>
